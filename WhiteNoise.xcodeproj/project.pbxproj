@@ -1,0 +1,773 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 70;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A000001 /* WhiteNoiseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000001 /* WhiteNoiseApp.swift */; };
+		1A000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000002 /* ContentView.swift */; };
+		1A000003 /* PlayPauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000003 /* PlayPauseButton.swift */; };
+		1A000004 /* WhiteNoiseEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000004 /* WhiteNoiseEngine.swift */; };
+		1A000005 /* AudioSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000005 /* AudioSessionManager.swift */; };
+		1A000006 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A000006 /* Assets.xcassets */; };
+		B354826F2F1307C90031F352 /* WhiteNoise Watch App Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B354824F2F1307C80031F352 /* WhiteNoise Watch App Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B35482832F130B3F0031F352 /* WhiteNoiseEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000004 /* WhiteNoiseEngine.swift */; };
+		B35482842F130B560031F352 /* AudioSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000005 /* AudioSessionManager.swift */; };
+		B35482852F130B620031F352 /* PlayPauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000003 /* PlayPauseButton.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B354825C2F1307C90031F352 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16A000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B354824E2F1307C80031F352;
+			remoteInfo = "WhiteNoise Watch App Watch App";
+		};
+		B35482662F1307C90031F352 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16A000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B354824E2F1307C80031F352;
+			remoteInfo = "WhiteNoise Watch App Watch App";
+		};
+		B354826D2F1307C90031F352 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16A000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B354824E2F1307C80031F352;
+			remoteInfo = "WhiteNoise Watch App Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B35482732F1307C90031F352 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				B354826F2F1307C90031F352 /* WhiteNoise Watch App Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2A000001 /* WhiteNoiseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteNoiseApp.swift; sourceTree = "<group>"; };
+		2A000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2A000003 /* PlayPauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPauseButton.swift; sourceTree = "<group>"; };
+		2A000004 /* WhiteNoiseEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteNoiseEngine.swift; sourceTree = "<group>"; };
+		2A000005 /* AudioSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionManager.swift; sourceTree = "<group>"; };
+		2A000006 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3A000001 /* WhiteNoise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhiteNoise.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B354824F2F1307C80031F352 /* WhiteNoise Watch App Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WhiteNoise Watch App Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B354825B2F1307C90031F352 /* WhiteNoise Watch App Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WhiteNoise Watch App Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B35482652F1307C90031F352 /* WhiteNoise Watch App Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WhiteNoise Watch App Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		B3B4FAAA2F13ADFA00042321 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = B354824E2F1307C80031F352 /* WhiteNoise Watch App Watch App */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		B35482502F1307C80031F352 /* WhiteNoise Watch App Watch App */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (B3B4FAAA2F13ADFA00042321 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "WhiteNoise Watch App Watch App"; sourceTree = "<group>"; };
+		B354825E2F1307C90031F352 /* WhiteNoise Watch App Watch AppTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "WhiteNoise Watch App Watch AppTests"; sourceTree = "<group>"; };
+		B35482682F1307C90031F352 /* WhiteNoise Watch App Watch AppUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "WhiteNoise Watch App Watch AppUITests"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5A000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B354824C2F1307C80031F352 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B35482582F1307C90031F352 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B35482622F1307C90031F352 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10A000001 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				2A000004 /* WhiteNoiseEngine.swift */,
+				2A000005 /* AudioSessionManager.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		11A000001 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2A000003 /* PlayPauseButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6A000001 = {
+			isa = PBXGroup;
+			children = (
+				7A000001 /* WhiteNoise */,
+				B35482502F1307C80031F352 /* WhiteNoise Watch App Watch App */,
+				B354825E2F1307C90031F352 /* WhiteNoise Watch App Watch AppTests */,
+				B35482682F1307C90031F352 /* WhiteNoise Watch App Watch AppUITests */,
+				8A000001 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7A000001 /* WhiteNoise */ = {
+			isa = PBXGroup;
+			children = (
+				2A000001 /* WhiteNoiseApp.swift */,
+				9A000001 /* Views */,
+				10A000001 /* Audio */,
+				2A000006 /* Assets.xcassets */,
+				4A000001 /* Info.plist */,
+			);
+			path = WhiteNoise;
+			sourceTree = "<group>";
+		};
+		8A000001 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A000001 /* WhiteNoise.app */,
+				B354824F2F1307C80031F352 /* WhiteNoise Watch App Watch App.app */,
+				B354825B2F1307C90031F352 /* WhiteNoise Watch App Watch AppTests.xctest */,
+				B35482652F1307C90031F352 /* WhiteNoise Watch App Watch AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9A000001 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2A000002 /* ContentView.swift */,
+				11A000001 /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		12A000001 /* WhiteNoise */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13A000001 /* Build configuration list for PBXNativeTarget "WhiteNoise" */;
+			buildPhases = (
+				14A000001 /* Sources */,
+				5A000001 /* Frameworks */,
+				15A000001 /* Resources */,
+				B35482732F1307C90031F352 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B354826E2F1307C90031F352 /* PBXTargetDependency */,
+			);
+			name = WhiteNoise;
+			productName = WhiteNoise;
+			productReference = 3A000001 /* WhiteNoise.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B354824E2F1307C80031F352 /* WhiteNoise Watch App Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B35482702F1307C90031F352 /* Build configuration list for PBXNativeTarget "WhiteNoise Watch App Watch App" */;
+			buildPhases = (
+				B354824B2F1307C80031F352 /* Sources */,
+				B354824C2F1307C80031F352 /* Frameworks */,
+				B354824D2F1307C80031F352 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				B35482502F1307C80031F352 /* WhiteNoise Watch App Watch App */,
+			);
+			name = "WhiteNoise Watch App Watch App";
+			packageProductDependencies = (
+			);
+			productName = "WhiteNoise Watch App Watch App";
+			productReference = B354824F2F1307C80031F352 /* WhiteNoise Watch App Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B354825A2F1307C90031F352 /* WhiteNoise Watch App Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B35482742F1307C90031F352 /* Build configuration list for PBXNativeTarget "WhiteNoise Watch App Watch AppTests" */;
+			buildPhases = (
+				B35482572F1307C90031F352 /* Sources */,
+				B35482582F1307C90031F352 /* Frameworks */,
+				B35482592F1307C90031F352 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B354825D2F1307C90031F352 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B354825E2F1307C90031F352 /* WhiteNoise Watch App Watch AppTests */,
+			);
+			name = "WhiteNoise Watch App Watch AppTests";
+			packageProductDependencies = (
+			);
+			productName = "WhiteNoise Watch App Watch AppTests";
+			productReference = B354825B2F1307C90031F352 /* WhiteNoise Watch App Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B35482642F1307C90031F352 /* WhiteNoise Watch App Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B35482772F1307C90031F352 /* Build configuration list for PBXNativeTarget "WhiteNoise Watch App Watch AppUITests" */;
+			buildPhases = (
+				B35482612F1307C90031F352 /* Sources */,
+				B35482622F1307C90031F352 /* Frameworks */,
+				B35482632F1307C90031F352 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B35482672F1307C90031F352 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B35482682F1307C90031F352 /* WhiteNoise Watch App Watch AppUITests */,
+			);
+			name = "WhiteNoise Watch App Watch AppUITests";
+			packageProductDependencies = (
+			);
+			productName = "WhiteNoise Watch App Watch AppUITests";
+			productReference = B35482652F1307C90031F352 /* WhiteNoise Watch App Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		16A000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					12A000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					B354824E2F1307C80031F352 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					B354825A2F1307C90031F352 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = B354824E2F1307C80031F352;
+					};
+					B35482642F1307C90031F352 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = B354824E2F1307C80031F352;
+					};
+				};
+			};
+			buildConfigurationList = 17A000001 /* Build configuration list for PBXProject "WhiteNoise" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6A000001;
+			productRefGroup = 8A000001 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				12A000001 /* WhiteNoise */,
+				B354824E2F1307C80031F352 /* WhiteNoise Watch App Watch App */,
+				B354825A2F1307C90031F352 /* WhiteNoise Watch App Watch AppTests */,
+				B35482642F1307C90031F352 /* WhiteNoise Watch App Watch AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		15A000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A000006 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B354824D2F1307C80031F352 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B35482592F1307C90031F352 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B35482632F1307C90031F352 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		14A000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A000001 /* WhiteNoiseApp.swift in Sources */,
+				1A000002 /* ContentView.swift in Sources */,
+				1A000003 /* PlayPauseButton.swift in Sources */,
+				1A000004 /* WhiteNoiseEngine.swift in Sources */,
+				1A000005 /* AudioSessionManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B354824B2F1307C80031F352 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B35482842F130B560031F352 /* AudioSessionManager.swift in Sources */,
+				B35482852F130B620031F352 /* PlayPauseButton.swift in Sources */,
+				B35482832F130B3F0031F352 /* WhiteNoiseEngine.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B35482572F1307C90031F352 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B35482612F1307C90031F352 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B354825D2F1307C90031F352 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B354824E2F1307C80031F352 /* WhiteNoise Watch App Watch App */;
+			targetProxy = B354825C2F1307C90031F352 /* PBXContainerItemProxy */;
+		};
+		B35482672F1307C90031F352 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B354824E2F1307C80031F352 /* WhiteNoise Watch App Watch App */;
+			targetProxy = B35482662F1307C90031F352 /* PBXContainerItemProxy */;
+		};
+		B354826E2F1307C90031F352 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B354824E2F1307C80031F352 /* WhiteNoise Watch App Watch App */;
+			targetProxy = B354826D2F1307C90031F352 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		18A000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		19A000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		20A000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DNG38QP97S;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = WhiteNoise/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tmanyanov.whitenoise;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		21A000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DNG38QP97S;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = WhiteNoise/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tmanyanov.whitenoise;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B35482712F1307C90031F352 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DNG38QP97S;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "WhiteNoise Watch App/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tmanyanov.whitenoise.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Debug;
+		};
+		B35482722F1307C90031F352 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DNG38QP97S;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "WhiteNoise Watch App/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tmanyanov.whitenoise.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Release;
+		};
+		B35482752F1307C90031F352 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "tim.WhiteNoise-Watch-App-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhiteNoise Watch App Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WhiteNoise Watch App Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Debug;
+		};
+		B35482762F1307C90031F352 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "tim.WhiteNoise-Watch-App-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhiteNoise Watch App Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WhiteNoise Watch App Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Release;
+		};
+		B35482782F1307C90031F352 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DNG38QP97S;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "tim.WhiteNoise-Watch-App-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "WhiteNoise Watch App Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Debug;
+		};
+		B35482792F1307C90031F352 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DNG38QP97S;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "tim.WhiteNoise-Watch-App-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "WhiteNoise Watch App Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		13A000001 /* Build configuration list for PBXNativeTarget "WhiteNoise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20A000001 /* Debug */,
+				21A000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17A000001 /* Build configuration list for PBXProject "WhiteNoise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18A000001 /* Debug */,
+				19A000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B35482702F1307C90031F352 /* Build configuration list for PBXNativeTarget "WhiteNoise Watch App Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B35482712F1307C90031F352 /* Debug */,
+				B35482722F1307C90031F352 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B35482742F1307C90031F352 /* Build configuration list for PBXNativeTarget "WhiteNoise Watch App Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B35482752F1307C90031F352 /* Debug */,
+				B35482762F1307C90031F352 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B35482772F1307C90031F352 /* Build configuration list for PBXNativeTarget "WhiteNoise Watch App Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B35482782F1307C90031F352 /* Debug */,
+				B35482792F1307C90031F352 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 16A000001 /* Project object */;
+}
