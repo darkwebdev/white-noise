@@ -4,22 +4,21 @@ struct WatchContentView: View {
     @StateObject private var audioEngine = WhiteNoiseEngine()
 
     var body: some View {
-        ZStack {
-            Color(.systemBackground)
-                .ignoresSafeArea()
+        ScrollView {
+            VStack(spacing: 8) {
+                Text("Noise Type")
+                    .font(.headline)
+                    .padding(.top, 8)
 
-            VStack {
-                Spacer()
-
-                PlayPauseButton(isPlaying: $audioEngine.isPlaying) {
-                    if audioEngine.isPlaying {
-                        audioEngine.pause()
-                    } else {
-                        audioEngine.play()
+                ForEach(NoiseType.allCases, id: \.self) { noiseType in
+                    NoiseTypeButton(
+                        noiseType: noiseType,
+                        isPlaying: audioEngine.isPlaying && audioEngine.currentNoiseType == noiseType
+                    ) {
+                        audioEngine.setNoiseType(noiseType)
                     }
                 }
-
-                Spacer()
+                .padding(.horizontal, 8)
             }
         }
         .onAppear {

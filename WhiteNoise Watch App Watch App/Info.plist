@@ -23,9 +23,8 @@
 		<string>audio</string>
 	</array>
 	<key>WKApplication</key>
-	<dict>
-		<key>WKWatchOnly</key>
-		<true/>
-	</dict>
+	<true/>
+	<key>WKWatchKitApp</key>
+	<true/>
 </dict>
 </plist>
