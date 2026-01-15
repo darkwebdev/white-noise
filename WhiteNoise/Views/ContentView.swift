@@ -37,7 +37,7 @@ struct ContentView: View {
                     HStack(spacing: 8) {
                         Image("pacifier")
                             .resizable()
-                            .frame(width: 24, height: 24)
+                            .frame(width: 28, height: 28)
                             .foregroundColor(.pastelLavender)
                         Text("Pacifier")
                             .font(.system(size: 24, weight: .semibold))
@@ -50,7 +50,7 @@ struct ContentView: View {
                     }) {
                         Image(systemName: "gearshape.fill")
                             .font(.system(size: 20))
-                            .foregroundColor(.secondary)
+                            .foregroundColor(systemColorScheme == .dark ? .pastelMintDark : .pastelLavender)
                     }
                     .padding(.trailing, 16)
                 }
