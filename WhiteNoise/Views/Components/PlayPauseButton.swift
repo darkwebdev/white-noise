@@ -87,19 +87,19 @@ struct NoiseTypeButton: View {
         Button(action: action) {
             HStack(spacing: 8) {
                 Image(systemName: isPlaying ? "pause.fill" : noiseType.icon)
-                    .font(.system(size: 14))
+                    .font(.system(size: 16))
                     .foregroundColor(isPlaying ? .white : (colorScheme == .dark ? .pastelMintDark : .pastelLavender))
-                    .frame(width: 20)
+                    .frame(width: 22)
 
                 Text(noiseType.rawValue)
-                    .font(.system(size: 14))
+                    .font(.system(size: 16))
                     .foregroundColor(isPlaying ? .white : .primary)
                     .lineLimit(1)
 
                 Spacer(minLength: 0)
             }
             .padding(.horizontal, 8)
-            .padding(.vertical, 12)
+            .padding(.vertical, 16)
             .background(
                 RoundedRectangle(cornerRadius: 8)
                     .fill(isPlaying ? Color.pastelForPlaying(colorScheme: colorScheme) : Color.clear)

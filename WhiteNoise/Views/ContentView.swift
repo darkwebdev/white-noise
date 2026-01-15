@@ -18,6 +18,17 @@ struct ContentView: View {
                 .ignoresSafeArea()
 
             VStack(spacing: 0) {
+                // Title
+                HStack(spacing: 8) {
+                    Image(systemName: "mouth.fill")
+                        .font(.system(size: 20))
+                        .foregroundColor(.pastelLavender)
+                    Text("Pacifier")
+                        .font(.system(size: 24, weight: .semibold))
+                }
+                .padding(.top, 20)
+                .padding(.bottom, 16)
+
                 // Colored Noises Section
                 LazyVGrid(columns: columns, spacing: 12) {
                     ForEach(coloredNoises, id: \.self) { noiseType in
@@ -30,12 +41,21 @@ struct ContentView: View {
                     }
                 }
                 .padding(.horizontal, 12)
-                .padding(.top, 16)
+                .padding(.top, 20)
 
                 SoundWaveDivider()
-                    .padding(.vertical, 16)
+                    .padding(.vertical, 20)
 
                 // Generated Sounds Section
+                HStack {
+                    Text("In Development")
+                        .font(.system(size: 12))
+                        .foregroundColor(.secondary)
+                        .padding(.horizontal, 12)
+                    Spacer()
+                }
+                .padding(.bottom, 12)
+
                 LazyVGrid(columns: columns, spacing: 12) {
                     ForEach(generatedSounds, id: \.self) { noiseType in
                         NoiseTypeButton(
@@ -49,16 +69,17 @@ struct ContentView: View {
                 .padding(.horizontal, 12)
 
                 SoundWaveDivider()
-                    .padding(.vertical, 16)
+                    .padding(.vertical, 20)
 
                 // Sample Sounds Section
                 HStack {
-                    Text("In Development")
+                    Text("Planned")
                         .font(.system(size: 12))
                         .foregroundColor(.secondary)
                         .padding(.horizontal, 12)
                     Spacer()
                 }
+                .padding(.bottom, 12)
 
                 LazyVGrid(columns: columns, spacing: 12) {
                     ForEach(sampleSounds, id: \.self) { noiseType in
@@ -71,7 +92,7 @@ struct ContentView: View {
                     }
                 }
                 .padding(.horizontal, 12)
-                .padding(.bottom, 16)
+                .padding(.bottom, 20)
             }
         }
         .ignoresSafeArea()
