@@ -184,6 +184,10 @@ WhiteNoise/
 - iOS 15.0 or later
 - Swift 5.5 or later
 
+## Attributions
+
+- **Pacifier Icon** by Creative Studio from [Noun Project](https://thenounproject.com/browse/icons/term/pacifier/) (CC BY 3.0)
+
 ## License
 
 Free to use and modify.

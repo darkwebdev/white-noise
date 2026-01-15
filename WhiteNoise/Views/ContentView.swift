@@ -2,6 +2,9 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var audioEngine = WhiteNoiseEngine()
+    @State private var showSettings = false
+    @AppStorage("appTheme") private var appTheme: String = AppTheme.auto.rawValue
+    @Environment(\.colorScheme) var systemColorScheme
 
     let coloredNoises: [NoiseType] = [.white, .pink, .brown, .blue]
     let generatedSounds: [NoiseType] = [.shush, .seaWaves, .heartbeat]
@@ -12,20 +15,44 @@ struct ContentView: View {
         GridItem(.flexible(), spacing: 12)
     ]
 
+    var preferredColorScheme: ColorScheme? {
+        guard let theme = AppTheme(rawValue: appTheme) else { return nil }
+        switch theme {
+        case .light: return .light
+        case .dark: return .dark
+        case .auto: return nil
+        }
+    }
+
     var body: some View {
         ZStack {
             Color(UIColor.systemBackground)
                 .ignoresSafeArea()
 
             VStack(spacing: 0) {
-                // Title
-                HStack(spacing: 8) {
-                    Image("pacifier")
-                        .resizable()
-                        .frame(width: 24, height: 24)
-                        .foregroundColor(.pastelLavender)
-                    Text("Pacifier")
-                        .font(.system(size: 24, weight: .semibold))
+                // Title and Settings
+                HStack {
+                    Spacer()
+
+                    HStack(spacing: 8) {
+                        Image("pacifier")
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(.pastelLavender)
+                        Text("Pacifier")
+                            .font(.system(size: 24, weight: .semibold))
+                    }
+
+                    Spacer()
+
+                    Button(action: {
+                        showSettings = true
+                    }) {
+                        Image(systemName: "gearshape.fill")
+                            .font(.system(size: 20))
+                            .foregroundColor(.secondary)
+                    }
+                    .padding(.trailing, 16)
                 }
                 .padding(.top, 20)
                 .padding(.bottom, 16)
@@ -97,6 +124,10 @@ struct ContentView: View {
             }
         }
         .ignoresSafeArea()
+        .preferredColorScheme(preferredColorScheme)
+        .sheet(isPresented: $showSettings) {
+            SettingsView()
+        }
         .onAppear {
             audioEngine.setupAudioGraph()
         }
