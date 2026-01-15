@@ -13,8 +13,11 @@ struct ContentView: View {
     ]
 
     var body: some View {
-        ScrollView {
-            VStack(spacing: 24) {
+        ZStack {
+            Color(UIColor.systemBackground)
+                .ignoresSafeArea()
+
+            VStack(spacing: 0) {
                 // Colored Noises Section
                 LazyVGrid(columns: columns, spacing: 12) {
                     ForEach(coloredNoises, id: \.self) { noiseType in
@@ -27,8 +30,10 @@ struct ContentView: View {
                     }
                 }
                 .padding(.horizontal, 12)
+                .padding(.top, 16)
 
                 SoundWaveDivider()
+                    .padding(.vertical, 16)
 
                 // Generated Sounds Section
                 LazyVGrid(columns: columns, spacing: 12) {
@@ -44,8 +49,17 @@ struct ContentView: View {
                 .padding(.horizontal, 12)
 
                 SoundWaveDivider()
+                    .padding(.vertical, 16)
 
                 // Sample Sounds Section
+                HStack {
+                    Text("In Development")
+                        .font(.system(size: 12))
+                        .foregroundColor(.secondary)
+                        .padding(.horizontal, 12)
+                    Spacer()
+                }
+
                 LazyVGrid(columns: columns, spacing: 12) {
                     ForEach(sampleSounds, id: \.self) { noiseType in
                         NoiseTypeButton(
@@ -57,10 +71,10 @@ struct ContentView: View {
                     }
                 }
                 .padding(.horizontal, 12)
-
-                Spacer(minLength: 20)
+                .padding(.bottom, 16)
             }
         }
+        .ignoresSafeArea()
         .onAppear {
             audioEngine.setupAudioGraph()
         }

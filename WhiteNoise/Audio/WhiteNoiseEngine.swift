@@ -142,54 +142,56 @@ class WhiteNoiseEngine: ObservableObject {
     private func generateShushNoise() -> Float {
         let white = Float.random(in: -1.0...1.0)
 
-        // Simulate high-frequency shush sound (2-8kHz band-pass)
-        shushState = 0.9 * shushState + white * 0.1
-        let bandpass = white - shushState
+        // High-pass filter for "shhh" sound (emphasize 4-10kHz)
+        shushState = shushState * 0.85 + white * 0.15
+        let highpass = white - shushState
 
-        return bandpass * 0.35
+        return highpass * 0.4
     }
 
     private func generateSeaWaves() -> Float {
         let sampleRate: Float = 44100
         sampleIndex += 1
 
-        // Wave period: 3-5 seconds for realistic ocean waves
-        let wavePeriod: Float = 4.0
+        // Much longer wave period: 6-8 seconds for realistic ocean
+        let wavePeriod: Float = 7.0
         let baseFreq: Float = 1.0 / wavePeriod
 
         wavePhase += 2.0 * Float.pi * baseFreq / sampleRate
         if wavePhase > 2.0 * Float.pi {
             wavePhase = 0
-            waveAmplitude = Float.random(in: 0.6...1.0)
+            waveAmplitude = Float.random(in: 0.5...0.9)
         }
 
-        // Envelope: slow rise, quick fall (like waves crashing)
         let normalizedPhase = wavePhase / (2.0 * Float.pi)
         var envelope: Float = 0.0
 
-        if normalizedPhase < 0.7 {
-            // Slow rise
-            envelope = pow(normalizedPhase / 0.7, 2.0)
+        // Very gradual build-up and crash
+        if normalizedPhase < 0.5 {
+            // Very slow rise (50% of cycle)
+            envelope = pow(normalizedPhase / 0.5, 1.5)
+        } else if normalizedPhase < 0.7 {
+            // Peak
+            envelope = 1.0
         } else {
-            // Quick fall
+            // Gradual fall (30% of cycle)
             let fallPhase = (normalizedPhase - 0.7) / 0.3
-            envelope = 1.0 - pow(fallPhase, 0.5)
+            envelope = 1.0 - pow(fallPhase, 2.0)
         }
 
-        // Add filtered noise for wave texture
+        // Filtered white noise for wave texture
         let white = Float.random(in: -1.0...1.0)
-        let lowpass = brownValue * 0.95 + white * 0.05
-        brownValue = lowpass
+        brownValue = brownValue * 0.98 + white * 0.02
 
-        // Combine wave oscillation with noise
-        let wave = sin(wavePhase * 3.0) * 0.3 + sin(wavePhase * 7.0) * 0.15
+        // Low frequency rumble
+        let rumble = sin(wavePhase * 2.0) * 0.2
 
-        return (wave + lowpass * 0.5) * envelope * waveAmplitude * 0.5
+        return (brownValue + rumble) * envelope * waveAmplitude * 0.45
     }
 
     private func generateHeartbeat() -> Float {
         let sampleRate: Float = 44100
-        let bpm: Float = 72
+        let bpm: Float = 65  // Slower, more restful
         let beatFreq: Float = bpm / 60.0
 
         heartbeatPhase += 2.0 * Float.pi * beatFreq / sampleRate
@@ -200,18 +202,20 @@ class WhiteNoiseEngine: ObservableObject {
         let normalizedPhase = heartbeatPhase / (2.0 * Float.pi)
         var sample: Float = 0.0
 
-        // First beat (LUB) - stronger, lower
-        if normalizedPhase < 0.08 {
-            let t = normalizedPhase / 0.08
-            sample = sin(t * Float.pi) * exp(-t * 10.0) * 0.9
+        // First beat (LUB) - deep, resonant
+        if normalizedPhase < 0.06 {
+            let t = normalizedPhase / 0.06
+            let freq: Float = 80.0  // Low frequency thump
+            sample = sin(t * Float.pi) * sin(t * freq) * exp(-t * 15.0) * 0.8
         }
-        // Second beat (DUB) - softer, slightly higher
-        else if normalizedPhase >= 0.12 && normalizedPhase < 0.18 {
-            let t = (normalizedPhase - 0.12) / 0.06
-            sample = sin(t * Float.pi) * exp(-t * 12.0) * 0.6
+        // Second beat (DUB) - shorter, higher
+        else if normalizedPhase >= 0.10 && normalizedPhase < 0.14 {
+            let t = (normalizedPhase - 0.10) / 0.04
+            let freq: Float = 120.0  // Slightly higher
+            sample = sin(t * Float.pi) * sin(t * freq) * exp(-t * 20.0) * 0.5
         }
 
-        return sample * 0.7
+        return sample * 0.6
     }
 
     func play() {
