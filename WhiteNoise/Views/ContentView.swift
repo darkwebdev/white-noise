@@ -20,7 +20,7 @@ struct ContentView: View {
             VStack(spacing: 0) {
                 // Title
                 HStack(spacing: 8) {
-                    Image(systemName: "mouth.fill")
+                    Image(systemName: "circle.circle")
                         .font(.system(size: 20))
                         .foregroundColor(.pastelLavender)
                     Text("Pacifier")
