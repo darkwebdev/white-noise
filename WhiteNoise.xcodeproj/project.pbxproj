@@ -17,18 +17,6 @@
 		1A000008 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000008 /* AppTheme.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		B35482732F1307C90031F352 /* Embed Watch Content */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			name = "Embed Watch Content";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2A000001 /* WhiteNoiseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteNoiseApp.swift; sourceTree = "<group>"; };
@@ -43,10 +31,6 @@
 		4A000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		B354825E2F1307C90031F352 /* WhiteNoise Watch App Watch AppTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "WhiteNoise Watch App Watch AppTests"; sourceTree = "<group>"; };
-		B35482682F1307C90031F352 /* WhiteNoise Watch App Watch AppUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "WhiteNoise Watch App Watch AppUITests"; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		5A000001 /* Frameworks */ = {
@@ -80,8 +64,6 @@
 			isa = PBXGroup;
 			children = (
 				7A000001 /* WhiteNoise */,
-				B354825E2F1307C90031F352 /* WhiteNoise Watch App Watch AppTests */,
-				B35482682F1307C90031F352 /* WhiteNoise Watch App Watch AppUITests */,
 				8A000001 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -135,7 +117,6 @@
 				14A000001 /* Sources */,
 				5A000001 /* Frameworks */,
 				15A000001 /* Resources */,
-				B35482732F1307C90031F352 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
