@@ -1,0 +1,13 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Pacifier shield/guard -->
+  <ellipse cx="12" cy="10" rx="8" ry="6" fill="#D4C4E8" stroke="#B8A4D4" stroke-width="1.5"/>
+
+  <!-- Center nipple -->
+  <circle cx="12" cy="10" r="3.5" fill="#E8DCF4"/>
+
+  <!-- Handle ring -->
+  <circle cx="12" cy="17" r="2.5" fill="none" stroke="#B8A4D4" stroke-width="1.5"/>
+
+  <!-- Connection between shield and ring -->
+  <rect x="11" y="13.5" width="2" height="1.5" fill="#B8A4D4" rx="1"/>
+</svg>
