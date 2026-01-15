@@ -1,13 +1,19 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Pacifier shield/guard -->
-  <ellipse cx="12" cy="10" rx="8" ry="6" fill="#D4C4E8" stroke="#B8A4D4" stroke-width="1.5"/>
+  <!-- Smiley shield with indents -->
+  <path d="M 5 10 Q 5 7.5 7 7.5 L 9.5 7.5 Q 10 7 12 7 Q 14 7 14.5 7.5 L 17 7.5 Q 19 7.5 19 10 Q 19 12.5 17 12.5 L 14.5 12.5 Q 14 13 12 13 Q 10 13 9.5 12.5 L 7 12.5 Q 5 12.5 5 10 Z" stroke="#B8A4D4" stroke-width="1.8" fill="none"/>
 
-  <!-- Center nipple -->
-  <circle cx="12" cy="10" r="3.5" fill="#E8DCF4"/>
+  <!-- Left "eye" circle -->
+  <circle cx="8.5" cy="10" r="1" fill="#B8A4D4"/>
 
-  <!-- Handle ring -->
-  <circle cx="12" cy="17" r="2.5" fill="none" stroke="#B8A4D4" stroke-width="1.5"/>
+  <!-- Right "eye" circle -->
+  <circle cx="15.5" cy="10" r="1" fill="#B8A4D4"/>
 
-  <!-- Connection between shield and ring -->
-  <rect x="11" y="13.5" width="2" height="1.5" fill="#B8A4D4" rx="1"/>
+  <!-- Heart in center -->
+  <path d="M 12 11.5 L 13.2 9.8 Q 13.5 9.3 13.2 9 Q 12.9 8.7 12.5 9 L 12 9.5 L 11.5 9 Q 11.1 8.7 10.8 9 Q 10.5 9.3 10.8 9.8 Z" fill="#B8A4D4"/>
+
+  <!-- Ring handle -->
+  <circle cx="12" cy="18" r="2" stroke="#B8A4D4" stroke-width="1.8" fill="none"/>
+
+  <!-- Connection -->
+  <line x1="12" y1="13" x2="12" y2="16" stroke="#B8A4D4" stroke-width="1.8" stroke-linecap="round"/>
 </svg>
