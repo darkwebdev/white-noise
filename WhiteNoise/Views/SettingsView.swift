@@ -3,22 +3,10 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
     @AppStorage("appTheme") private var appTheme: String = AppTheme.auto.rawValue
-    @Environment(\.colorScheme) var systemColorScheme
+    @Environment(\.colorScheme) var colorScheme
 
     var selectedTheme: AppTheme {
         AppTheme(rawValue: appTheme) ?? .auto
-    }
-
-    var preferredColorScheme: ColorScheme? {
-        switch selectedTheme {
-        case .light: return .light
-        case .dark: return .dark
-        case .auto: return nil
-        }
-    }
-
-    var effectiveColorScheme: ColorScheme {
-        preferredColorScheme ?? systemColorScheme
     }
 
     var body: some View {
@@ -32,7 +20,7 @@ struct SettingsView: View {
                             HStack {
                                 Image(systemName: theme.icon)
                                     .font(.system(size: 16))
-                                    .foregroundColor(effectiveColorScheme == .dark ? .pastelMintDark : .pastelLavender)
+                                    .foregroundColor(colorScheme == .dark ? .pastelMintDark : .pastelLavender)
                                     .frame(width: 24)
 
                                 Text(theme.rawValue)
@@ -42,7 +30,7 @@ struct SettingsView: View {
 
                                 if selectedTheme == theme {
                                     Image(systemName: "checkmark")
-                                        .foregroundColor(effectiveColorScheme == .dark ? .pastelMintDark : .pastelLavender)
+                                        .foregroundColor(colorScheme == .dark ? .pastelMintDark : .pastelLavender)
                                 }
                             }
                             .contentShape(Rectangle())
@@ -78,13 +66,9 @@ struct SettingsView: View {
             }
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done") {
-                        dismiss()
-                    }
-                }
-            }
+            .navigationBarItems(trailing: Button("Done") {
+                dismiss()
+            })
         }
     }
 }

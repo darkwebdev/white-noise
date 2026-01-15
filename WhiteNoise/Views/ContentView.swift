@@ -5,6 +5,7 @@ struct ContentView: View {
     @State private var showSettings = false
     @AppStorage("appTheme") private var appTheme: String = AppTheme.auto.rawValue
     @Environment(\.colorScheme) var systemColorScheme
+    @State private var settingsViewID = UUID()
 
     let coloredNoises: [NoiseType] = [.white, .pink, .brown, .blue]
     let generatedSounds: [NoiseType] = [.shush, .seaWaves, .heartbeat]
@@ -128,11 +129,14 @@ struct ContentView: View {
         .preferredColorScheme(preferredColorScheme)
         .sheet(isPresented: $showSettings) {
             SettingsView()
-                .preferredColorScheme(preferredColorScheme)
-                .id(appTheme)
+                .id(settingsViewID)
+                .preferredColorScheme(preferredColorScheme ?? systemColorScheme)
         }
         .onAppear {
             audioEngine.setupAudioGraph()
+        }
+        .onChange(of: appTheme) { _ in
+            settingsViewID = UUID()
         }
     }
 }
