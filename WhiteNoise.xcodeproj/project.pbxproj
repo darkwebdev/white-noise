@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,8 +15,9 @@
 		1A000006 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A000006 /* Assets.xcassets */; };
 		1A000007 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000007 /* SettingsView.swift */; };
 		1A000008 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000008 /* AppTheme.swift */; };
+		B3B4FC272F1BE23500042321 /* sea_waves.wav in Resources */ = {isa = PBXBuildFile; fileRef = B3B4FC262F1BE23500042321 /* sea_waves.wav */; };
+		B3B4FC292F1BE34000042321 /* shush_rhythmic.wav in Resources */ = {isa = PBXBuildFile; fileRef = B3B4FC282F1BE34000042321 /* shush_rhythmic.wav */; };
 /* End PBXBuildFile section */
-
 
 /* Begin PBXFileReference section */
 		2A000001 /* WhiteNoiseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteNoiseApp.swift; sourceTree = "<group>"; };
@@ -29,8 +30,9 @@
 		2A000008 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		3A000001 /* WhiteNoise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhiteNoise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3B4FC262F1BE23500042321 /* sea_waves.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sea_waves.wav; path = WhiteNoise/sea_waves.wav; sourceTree = SOURCE_ROOT; };
+		B3B4FC282F1BE34000042321 /* shush_rhythmic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = shush_rhythmic.wav; path = WhiteNoise/shush_rhythmic.wav; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
-
 
 /* Begin PBXFrameworksBuildPhase section */
 		5A000001 /* Frameworks */ = {
@@ -46,6 +48,8 @@
 		10A000001 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				B3B4FC282F1BE34000042321 /* shush_rhythmic.wav */,
+				B3B4FC262F1BE23500042321 /* sea_waves.wav */,
 				2A000004 /* WhiteNoiseEngine.swift */,
 				2A000005 /* AudioSessionManager.swift */,
 			);
@@ -58,6 +62,14 @@
 				2A000003 /* PlayPauseButton.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		12A000002 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2A000008 /* AppTheme.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		6A000001 = {
@@ -97,14 +109,6 @@
 				11A000001 /* Components */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		12A000002 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				2A000008 /* AppTheme.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +170,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A000006 /* Assets.xcassets in Resources */,
+				B3B4FC272F1BE23500042321 /* sea_waves.wav in Resources */,
+				B3B4FC292F1BE34000042321 /* shush_rhythmic.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

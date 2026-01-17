@@ -8,7 +8,7 @@ struct ContentView: View {
     @State private var settingsViewID = UUID()
 
     let coloredNoises: [NoiseType] = [.white, .pink, .brown, .blue]
-    let generatedSounds: [NoiseType] = [.shush, .seaWaves, .heartbeat]
+    let generatedSounds: [NoiseType] = [.shushRhythmic, .seaWaves]
     let sampleSounds: [NoiseType] = [.cafe, .rain, .beach]
 
     let columns = [
