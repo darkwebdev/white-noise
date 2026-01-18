@@ -17,6 +17,9 @@
 		1A000008 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000008 /* AppTheme.swift */; };
 		B3B4FC272F1BE23500042321 /* sea_waves.wav in Resources */ = {isa = PBXBuildFile; fileRef = B3B4FC262F1BE23500042321 /* sea_waves.wav */; };
 		B3B4FC292F1BE34000042321 /* shush_rhythmic.wav in Resources */ = {isa = PBXBuildFile; fileRef = B3B4FC282F1BE34000042321 /* shush_rhythmic.wav */; };
+		B3B4FC2A2F1BE40000042321 /* cafe.wav in Resources */ = {isa = PBXBuildFile; fileRef = B3B4FC2B2F1BE40000042321 /* cafe.wav */; };
+		B3B4FC2C2F1BE41000042321 /* rain.wav in Resources */ = {isa = PBXBuildFile; fileRef = B3B4FC2D2F1BE41000042321 /* rain.wav */; };
+		B3B4FC2E2F1BE42000042321 /* beach.wav in Resources */ = {isa = PBXBuildFile; fileRef = B3B4FC2F2F1BE42000042321 /* beach.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		4A000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3B4FC262F1BE23500042321 /* sea_waves.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sea_waves.wav; path = WhiteNoise/sea_waves.wav; sourceTree = SOURCE_ROOT; };
 		B3B4FC282F1BE34000042321 /* shush_rhythmic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = shush_rhythmic.wav; path = WhiteNoise/shush_rhythmic.wav; sourceTree = SOURCE_ROOT; };
+		B3B4FC2B2F1BE40000042321 /* cafe.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = cafe.wav; path = WhiteNoise/cafe.wav; sourceTree = SOURCE_ROOT; };
+		B3B4FC2D2F1BE41000042321 /* rain.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = rain.wav; path = WhiteNoise/rain.wav; sourceTree = SOURCE_ROOT; };
+		B3B4FC2F2F1BE42000042321 /* beach.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = beach.wav; path = WhiteNoise/beach.wav; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +56,9 @@
 			children = (
 				B3B4FC282F1BE34000042321 /* shush_rhythmic.wav */,
 				B3B4FC262F1BE23500042321 /* sea_waves.wav */,
+				B3B4FC2B2F1BE40000042321 /* cafe.wav */,
+				B3B4FC2D2F1BE41000042321 /* rain.wav */,
+				B3B4FC2F2F1BE42000042321 /* beach.wav */,
 				2A000004 /* WhiteNoiseEngine.swift */,
 				2A000005 /* AudioSessionManager.swift */,
 			);
@@ -172,6 +181,9 @@
 				1A000006 /* Assets.xcassets in Resources */,
 				B3B4FC272F1BE23500042321 /* sea_waves.wav in Resources */,
 				B3B4FC292F1BE34000042321 /* shush_rhythmic.wav in Resources */,
+				B3B4FC2A2F1BE40000042321 /* cafe.wav in Resources */,
+				B3B4FC2C2F1BE41000042321 /* rain.wav in Resources */,
+				B3B4FC2E2F1BE42000042321 /* beach.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

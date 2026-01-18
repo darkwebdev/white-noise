@@ -1,5 +1,6 @@
 import AVFoundation
 import Combine
+import MediaPlayer
 
 enum NoiseType: String, CaseIterable, Hashable {
     case white = "White Noise"
@@ -76,6 +77,34 @@ class WhiteNoiseEngine: ObservableObject {
     private var waveLowpassState: Float = 0
     private var heartbeatPhase: Float = 0
     private var sampleIndex: Int = 0
+
+    init() {
+        setupRemoteCommandCenter()
+    }
+
+    private func setupRemoteCommandCenter() {
+        let commandCenter = MPRemoteCommandCenter.shared()
+
+        commandCenter.playCommand.addTarget { [weak self] _ in
+            self?.play()
+            return .success
+        }
+
+        commandCenter.pauseCommand.addTarget { [weak self] _ in
+            self?.pause()
+            return .success
+        }
+
+        commandCenter.togglePlayPauseCommand.addTarget { [weak self] _ in
+            guard let self = self else { return .commandFailed }
+            if self.isPlaying {
+                self.pause()
+            } else {
+                self.play()
+            }
+            return .success
+        }
+    }
 
     func setupAudioGraph() {
         let mainMixer = audioEngine.mainMixerNode
@@ -310,6 +339,7 @@ class WhiteNoiseEngine: ObservableObject {
             do {
                 try audioEngine.start()
                 isPlaying = true
+                updateNowPlayingInfo()
             } catch {
                 print("Failed to start audio engine: \(error.localizedDescription)")
             }
@@ -323,6 +353,21 @@ class WhiteNoiseEngine: ObservableObject {
             audioEngine.pause()
         }
         isPlaying = false
+        clearNowPlayingInfo()
+    }
+
+    private func updateNowPlayingInfo() {
+        var nowPlayingInfo = [String: Any]()
+        nowPlayingInfo[MPMediaItemPropertyTitle] = currentNoiseType.rawValue
+        nowPlayingInfo[MPMediaItemPropertyArtist] = "Pacifier"
+        nowPlayingInfo[MPMediaItemPropertyAlbumTitle] = "White Noise"
+        nowPlayingInfo[MPNowPlayingInfoPropertyIsLiveStream] = true
+
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
+    }
+
+    private func clearNowPlayingInfo() {
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = nil
     }
 
     func setNoiseType(_ type: NoiseType) {
@@ -422,6 +467,7 @@ class WhiteNoiseEngine: ObservableObject {
                 player.scheduleBuffer(buffer, at: nil, options: .loops)
                 player.play()
                 isPlaying = true
+                updateNowPlayingInfo()
                 NSLog("▶️ Playing audio file: \(fileName).wav")
                 return
             } catch {
@@ -465,6 +511,7 @@ class WhiteNoiseEngine: ObservableObject {
             player.scheduleBuffer(buffer, at: nil, options: .loops)
             player.play()
             isPlaying = true
+            updateNowPlayingInfo()
         } catch {
             print("Failed to play sample audio: \(error.localizedDescription)")
         }

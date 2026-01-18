@@ -89,12 +89,14 @@ struct NoiseTypeButton: View {
                 Image(systemName: isPlaying ? "pause.fill" : noiseType.icon)
                     .font(.system(size: 16))
                     .foregroundColor(isPlaying ? .white : (colorScheme == .dark ? .pastelMintDark : .pastelLavender))
-                    .frame(width: 22)
+                    .frame(width: 22, height: 22)
+                    .fixedSize()
 
                 Text(noiseType.rawValue)
                     .font(.system(size: 16))
                     .foregroundColor(isPlaying ? .white : .primary)
                     .lineLimit(1)
+                    .fixedSize()
 
                 Spacer(minLength: 0)
             }
@@ -102,13 +104,15 @@ struct NoiseTypeButton: View {
             .padding(.vertical, 16)
             .background(
                 RoundedRectangle(cornerRadius: 8)
-                    .fill(isPlaying ? Color.pastelForPlaying(colorScheme: colorScheme) : Color.clear)
-            )
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(
-                        isPlaying ? Color.clear : (colorScheme == .dark ? Color.pastelSkyDark.opacity(0.4) : Color.pastelLavender.opacity(0.5)),
+                    .strokeBorder(
+                        isPlaying
+                            ? (colorScheme == .dark ? Color.pastelLavenderDark : Color.pastelLavender)
+                            : (colorScheme == .dark ? Color.pastelSkyDark.opacity(0.4) : Color.pastelLavender.opacity(0.5)),
                         lineWidth: 1.5
+                    )
+                    .background(
+                        RoundedRectangle(cornerRadius: 8)
+                            .fill(isPlaying ? Color.pastelForPlaying(colorScheme: colorScheme) : Color(UIColor.systemBackground))
                     )
             )
         }

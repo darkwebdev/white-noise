@@ -8,8 +8,8 @@ struct ContentView: View {
     @State private var settingsViewID = UUID()
 
     let coloredNoises: [NoiseType] = [.white, .pink, .brown, .blue]
-    let generatedSounds: [NoiseType] = [.shushRhythmic, .seaWaves]
-    let sampleSounds: [NoiseType] = [.cafe, .rain, .beach]
+    let generatedSounds: [NoiseType] = [.shushRhythmic, .seaWaves, .cafe, .rain, .beach]
+    let sampleSounds: [NoiseType] = []
 
     let columns = [
         GridItem(.flexible(), spacing: 12),
@@ -77,42 +77,8 @@ struct ContentView: View {
                     .padding(.vertical, 20)
 
                 // Generated Sounds Section
-                HStack {
-                    Text("In Development")
-                        .font(.system(size: 12))
-                        .foregroundColor(.secondary)
-                        .padding(.horizontal, 12)
-                    Spacer()
-                }
-                .padding(.bottom, 12)
-
                 LazyVGrid(columns: columns, spacing: 12) {
                     ForEach(generatedSounds, id: \.self) { noiseType in
-                        NoiseTypeButton(
-                            noiseType: noiseType,
-                            isPlaying: audioEngine.isPlaying && audioEngine.currentNoiseType == noiseType
-                        ) {
-                            audioEngine.setNoiseType(noiseType)
-                        }
-                    }
-                }
-                .padding(.horizontal, 12)
-
-                SoundWaveDivider()
-                    .padding(.vertical, 20)
-
-                // Sample Sounds Section
-                HStack {
-                    Text("Planned")
-                        .font(.system(size: 12))
-                        .foregroundColor(.secondary)
-                        .padding(.horizontal, 12)
-                    Spacer()
-                }
-                .padding(.bottom, 12)
-
-                LazyVGrid(columns: columns, spacing: 12) {
-                    ForEach(sampleSounds, id: \.self) { noiseType in
                         NoiseTypeButton(
                             noiseType: noiseType,
                             isPlaying: audioEngine.isPlaying && audioEngine.currentNoiseType == noiseType
