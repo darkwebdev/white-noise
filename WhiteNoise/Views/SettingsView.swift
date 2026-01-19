@@ -4,6 +4,7 @@ struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
     @AppStorage("appTheme") private var appTheme: String = AppTheme.auto.rawValue
     @Environment(\.colorScheme) var colorScheme
+    @State private var showAttributions = false
 
     var selectedTheme: AppTheme {
         AppTheme(rawValue: appTheme) ?? .auto
@@ -52,6 +53,28 @@ struct SettingsView: View {
                 }
 
                 Section(header: Text("Attributions")) {
+                    Button(action: {
+                        showAttributions = true
+                    }) {
+                        HStack {
+                            Image(systemName: "music.note.list")
+                                .font(.system(size: 16))
+                                .foregroundColor(colorScheme == .dark ? .pastelMintDark : .pastelLavender)
+                                .frame(width: 24)
+
+                            Text("Audio Attributions")
+                                .foregroundColor(.primary)
+
+                            Spacer()
+
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 14))
+                                .foregroundColor(.secondary)
+                        }
+                        .contentShape(Rectangle())
+                    }
+                    .buttonStyle(.plain)
+
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Pacifier Icon")
                             .font(.subheadline)
@@ -69,6 +92,9 @@ struct SettingsView: View {
             .navigationBarItems(trailing: Button("Done") {
                 dismiss()
             })
+            .sheet(isPresented: $showAttributions) {
+                AttributionsView()
+            }
         }
     }
 }

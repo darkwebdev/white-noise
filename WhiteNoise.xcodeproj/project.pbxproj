@@ -15,6 +15,7 @@
 		1A000006 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A000006 /* Assets.xcassets */; };
 		1A000007 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000007 /* SettingsView.swift */; };
 		1A000008 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000008 /* AppTheme.swift */; };
+		1A000009 /* AttributionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A000009 /* AttributionsView.swift */; };
 		B3B4FC272F1BE23500042321 /* sea_waves.wav in Resources */ = {isa = PBXBuildFile; fileRef = B3B4FC262F1BE23500042321 /* sea_waves.wav */; };
 		B3B4FC292F1BE34000042321 /* shush_rhythmic.wav in Resources */ = {isa = PBXBuildFile; fileRef = B3B4FC282F1BE34000042321 /* shush_rhythmic.wav */; };
 		B3B4FC2A2F1BE40000042321 /* cafe.wav in Resources */ = {isa = PBXBuildFile; fileRef = B3B4FC2B2F1BE40000042321 /* cafe.wav */; };
@@ -31,6 +32,7 @@
 		2A000006 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A000007 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2A000008 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		2A000009 /* AttributionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributionsView.swift; sourceTree = "<group>"; };
 		3A000001 /* WhiteNoise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhiteNoise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3B4FC262F1BE23500042321 /* sea_waves.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sea_waves.wav; path = WhiteNoise/sea_waves.wav; sourceTree = SOURCE_ROOT; };
@@ -115,6 +117,7 @@
 			children = (
 				2A000002 /* ContentView.swift */,
 				2A000007 /* SettingsView.swift */,
+				2A000009 /* AttributionsView.swift */,
 				11A000001 /* Components */,
 			);
 			path = Views;
@@ -201,6 +204,7 @@
 				1A000005 /* AudioSessionManager.swift in Sources */,
 				1A000007 /* SettingsView.swift in Sources */,
 				1A000008 /* AppTheme.swift in Sources */,
+				1A000009 /* AttributionsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

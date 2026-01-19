@@ -186,6 +186,8 @@ WhiteNoise/
 
 ## Attributions
 
+See [ATTRIBUTIONS.md](ATTRIBUTIONS.md) for complete audio file credits and licensing information.
+
 - **Pacifier Icon** by Creative Studio from [Noun Project](https://thenounproject.com/browse/icons/term/pacifier/) (CC BY 3.0)
 
 ## License

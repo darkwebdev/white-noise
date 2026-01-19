@@ -5,16 +5,19 @@ struct ContentView: View {
     @State private var showSettings = false
     @AppStorage("appTheme") private var appTheme: String = AppTheme.auto.rawValue
     @Environment(\.colorScheme) var systemColorScheme
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
     @State private var settingsViewID = UUID()
 
     let coloredNoises: [NoiseType] = [.white, .pink, .brown, .blue]
     let generatedSounds: [NoiseType] = [.shushRhythmic, .seaWaves, .cafe, .rain, .beach]
     let sampleSounds: [NoiseType] = []
 
-    let columns = [
-        GridItem(.flexible(), spacing: 12),
-        GridItem(.flexible(), spacing: 12)
-    ]
+    var columns: [GridItem] {
+        // Balanced columns: 2 in portrait, 3 in landscape for even distribution
+        let columnCount = horizontalSizeClass == .regular ? 3 : 2
+        return Array(repeating: GridItem(.flexible(minimum: 160, maximum: 200), spacing: 12), count: columnCount)
+    }
 
     var preferredColorScheme: ColorScheme? {
         guard let theme = AppTheme(rawValue: appTheme) else { return nil }
@@ -26,73 +29,78 @@ struct ContentView: View {
     }
 
     var body: some View {
-        ZStack {
-            Color(UIColor.systemBackground)
-                .ignoresSafeArea()
+        GeometryReader { geometry in
+            ZStack {
+                Color(UIColor.systemBackground)
+                    .ignoresSafeArea()
 
-            VStack(spacing: 0) {
-                // Title and Settings
-                HStack {
-                    Spacer()
+                ScrollView {
+                    VStack(spacing: 0) {
+                        // Title and Settings
+                        HStack {
+                            Spacer()
 
-                    HStack(alignment: .center, spacing: 8) {
-                        Image("pacifier")
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                            .foregroundColor(systemColorScheme == .dark ? .pastelMintDark : .pastelLavender)
-                            .offset(y: 2)
-                        Text("Pacifier")
-                            .font(.system(size: 24, weight: .semibold))
-                    }
+                            HStack(alignment: .center, spacing: 8) {
+                                Image("pacifier")
+                                    .resizable()
+                                    .frame(width: 40, height: 40)
+                                    .foregroundColor(systemColorScheme == .dark ? .pastelMintDark : .pastelLavender)
+                                    .offset(y: 2)
+                                Text("Pacifier")
+                                    .font(.system(size: 24, weight: .semibold))
+                            }
 
-                    Spacer()
+                            Spacer()
 
-                    Button(action: {
-                        showSettings = true
-                    }) {
-                        Image(systemName: "gearshape.fill")
-                            .font(.system(size: 20))
-                            .foregroundColor(systemColorScheme == .dark ? .pastelMintDark : .pastelLavender)
-                    }
-                    .padding(.trailing, 16)
-                }
-                .padding(.top, 20)
-                .padding(.bottom, 16)
-
-                // Colored Noises Section
-                LazyVGrid(columns: columns, spacing: 12) {
-                    ForEach(coloredNoises, id: \.self) { noiseType in
-                        NoiseTypeButton(
-                            noiseType: noiseType,
-                            isPlaying: audioEngine.isPlaying && audioEngine.currentNoiseType == noiseType
-                        ) {
-                            audioEngine.setNoiseType(noiseType)
+                            Button(action: {
+                                showSettings = true
+                            }) {
+                                Image(systemName: "gearshape.fill")
+                                    .font(.system(size: 20))
+                                    .foregroundColor(systemColorScheme == .dark ? .pastelMintDark : .pastelLavender)
+                            }
                         }
-                    }
-                }
-                .padding(.horizontal, 12)
-                .padding(.top, 20)
+                        .padding(.horizontal, max(geometry.safeAreaInsets.leading, 16))
+                        .padding(.top, max(geometry.safeAreaInsets.top, 20))
+                        .padding(.bottom, 16)
 
-                SoundWaveDivider()
-                    .padding(.vertical, 20)
-
-                // Generated Sounds Section
-                LazyVGrid(columns: columns, spacing: 12) {
-                    ForEach(generatedSounds, id: \.self) { noiseType in
-                        NoiseTypeButton(
-                            noiseType: noiseType,
-                            isPlaying: audioEngine.isPlaying && audioEngine.currentNoiseType == noiseType
-                        ) {
-                            audioEngine.setNoiseType(noiseType)
+                        // Colored Noises Section
+                        LazyVGrid(columns: columns, spacing: 12) {
+                            ForEach(coloredNoises, id: \.self) { noiseType in
+                                NoiseTypeButton(
+                                    noiseType: noiseType,
+                                    isPlaying: audioEngine.isPlaying && audioEngine.currentNoiseType == noiseType
+                                ) {
+                                    audioEngine.setNoiseType(noiseType)
+                                }
+                            }
                         }
+                        .padding(.horizontal, max(geometry.safeAreaInsets.leading, 12))
+                        .padding(.top, 20)
+
+                        SoundWaveDivider()
+                            .padding(.vertical, 20)
+                            .padding(.horizontal, max(geometry.safeAreaInsets.leading, 12))
+
+                        // Generated Sounds Section
+                        LazyVGrid(columns: columns, spacing: 12) {
+                            ForEach(generatedSounds, id: \.self) { noiseType in
+                                NoiseTypeButton(
+                                    noiseType: noiseType,
+                                    isPlaying: audioEngine.isPlaying && audioEngine.currentNoiseType == noiseType
+                                ) {
+                                    audioEngine.setNoiseType(noiseType)
+                                }
+                            }
+                        }
+                        .padding(.horizontal, max(geometry.safeAreaInsets.leading, 12))
+                        .padding(.bottom, max(geometry.safeAreaInsets.bottom, 20))
                     }
                 }
-                .padding(.horizontal, 12)
-                .padding(.bottom, 20)
             }
+            .ignoresSafeArea()
+            .preferredColorScheme(preferredColorScheme)
         }
-        .ignoresSafeArea()
-        .preferredColorScheme(preferredColorScheme)
         .sheet(isPresented: $showSettings) {
             SettingsView()
                 .id(settingsViewID)
