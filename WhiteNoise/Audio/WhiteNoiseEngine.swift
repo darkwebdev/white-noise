@@ -80,6 +80,11 @@ class WhiteNoiseEngine: ObservableObject {
 
     init() {
         setupRemoteCommandCenter()
+        setupRouteChangeNotification()
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     private func setupRemoteCommandCenter() {
@@ -103,6 +108,57 @@ class WhiteNoiseEngine: ObservableObject {
                 self.play()
             }
             return .success
+        }
+    }
+
+    private func setupRouteChangeNotification() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleRouteChange),
+            name: AVAudioSession.routeChangeNotification,
+            object: nil
+        )
+    }
+
+    @objc private func handleRouteChange(notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let reasonValue = userInfo[AVAudioSessionRouteChangeReasonKey] as? UInt,
+              let reason = AVAudioSession.RouteChangeReason(rawValue: reasonValue) else {
+            return
+        }
+
+        NSLog("🎧 Audio route changed: \(reason.rawValue)")
+
+        // Handle route changes (headphones plugged/unplugged, AirPods connected/disconnected, etc.)
+        switch reason {
+        case .newDeviceAvailable, .oldDeviceUnavailable:
+            // Device changed - restart audio if playing
+            if isPlaying {
+                NSLog("🔄 Restarting audio due to route change")
+                Task { @MainActor in
+                    let wasPlaying = isPlaying
+                    let currentType = currentNoiseType
+
+                    // Stop current playback
+                    if currentType.isSampleBased {
+                        playerNode?.stop()
+                    }
+                    audioEngine.stop()
+
+                    // Reconfigure and restart
+                    if currentType.isSampleBased {
+                        setupSamplePlayback()
+                    } else {
+                        setupAudioGraph()
+                    }
+
+                    if wasPlaying {
+                        play()
+                    }
+                }
+            }
+        default:
+            break
         }
     }
 

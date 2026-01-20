@@ -34,68 +34,71 @@ struct ContentView: View {
                 Color(UIColor.systemBackground)
                     .ignoresSafeArea()
 
-                ScrollView {
-                    VStack(spacing: 0) {
-                        // Title and Settings
-                        HStack {
-                            Spacer()
+                VStack(spacing: 0) {
+                    // Top spacer
+                    Spacer()
 
-                            HStack(alignment: .center, spacing: 8) {
-                                Image("pacifier")
-                                    .resizable()
-                                    .frame(width: 40, height: 40)
-                                    .foregroundColor(systemColorScheme == .dark ? .pastelMintDark : .pastelLavender)
-                                    .offset(y: 2)
-                                Text("Pacifier")
-                                    .font(.system(size: 24, weight: .semibold))
-                            }
+                    // Title and Settings
+                    HStack {
+                        Spacer()
 
-                            Spacer()
-
-                            Button(action: {
-                                showSettings = true
-                            }) {
-                                Image(systemName: "gearshape.fill")
-                                    .font(.system(size: 20))
-                                    .foregroundColor(systemColorScheme == .dark ? .pastelMintDark : .pastelLavender)
-                            }
+                        HStack(alignment: .center, spacing: 8) {
+                            Image("pacifier")
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                                .foregroundColor(systemColorScheme == .dark ? .pastelMintDark : .pastelLavender)
+                                .offset(y: 2)
+                            Text("Pacifier")
+                                .font(.system(size: 24, weight: .semibold))
                         }
-                        .padding(.horizontal, max(geometry.safeAreaInsets.leading, 16))
-                        .padding(.top, max(geometry.safeAreaInsets.top, 20))
-                        .padding(.bottom, 16)
 
-                        // Colored Noises Section
-                        LazyVGrid(columns: columns, spacing: 12) {
-                            ForEach(coloredNoises, id: \.self) { noiseType in
-                                NoiseTypeButton(
-                                    noiseType: noiseType,
-                                    isPlaying: audioEngine.isPlaying && audioEngine.currentNoiseType == noiseType
-                                ) {
-                                    audioEngine.setNoiseType(noiseType)
-                                }
-                            }
+                        Spacer()
+
+                        Button(action: {
+                            showSettings = true
+                        }) {
+                            Image(systemName: "gearshape.fill")
+                                .font(.system(size: 20))
+                                .foregroundColor(systemColorScheme == .dark ? .pastelMintDark : .pastelLavender)
                         }
-                        .padding(.horizontal, max(geometry.safeAreaInsets.leading, 12))
-                        .padding(.top, 20)
-
-                        SoundWaveDivider()
-                            .padding(.vertical, 20)
-                            .padding(.horizontal, max(geometry.safeAreaInsets.leading, 12))
-
-                        // Generated Sounds Section
-                        LazyVGrid(columns: columns, spacing: 12) {
-                            ForEach(generatedSounds, id: \.self) { noiseType in
-                                NoiseTypeButton(
-                                    noiseType: noiseType,
-                                    isPlaying: audioEngine.isPlaying && audioEngine.currentNoiseType == noiseType
-                                ) {
-                                    audioEngine.setNoiseType(noiseType)
-                                }
-                            }
-                        }
-                        .padding(.horizontal, max(geometry.safeAreaInsets.leading, 12))
-                        .padding(.bottom, max(geometry.safeAreaInsets.bottom, 20))
                     }
+                    .padding(.horizontal, max(geometry.safeAreaInsets.leading, 16))
+
+                    // Middle spacer
+                    Spacer()
+
+                    // Colored Noises Section
+                    LazyVGrid(columns: columns, spacing: 12) {
+                        ForEach(coloredNoises, id: \.self) { noiseType in
+                            NoiseTypeButton(
+                                noiseType: noiseType,
+                                isPlaying: audioEngine.isPlaying && audioEngine.currentNoiseType == noiseType
+                            ) {
+                                audioEngine.setNoiseType(noiseType)
+                            }
+                        }
+                    }
+                    .padding(.horizontal, max(geometry.safeAreaInsets.leading, 12))
+
+                    SoundWaveDivider()
+                        .padding(.vertical, 20)
+                        .padding(.horizontal, max(geometry.safeAreaInsets.leading, 12))
+
+                    // Generated Sounds Section
+                    LazyVGrid(columns: columns, spacing: 12) {
+                        ForEach(generatedSounds, id: \.self) { noiseType in
+                            NoiseTypeButton(
+                                noiseType: noiseType,
+                                isPlaying: audioEngine.isPlaying && audioEngine.currentNoiseType == noiseType
+                            ) {
+                                audioEngine.setNoiseType(noiseType)
+                            }
+                        }
+                    }
+                    .padding(.horizontal, max(geometry.safeAreaInsets.leading, 12))
+
+                    // Bottom spacer
+                    Spacer()
                 }
             }
             .ignoresSafeArea()
