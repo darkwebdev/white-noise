@@ -1,4 +1,5 @@
 import SwiftUI
+import AVKit
 
 struct ContentView: View {
     @StateObject private var audioEngine = WhiteNoiseEngine()
@@ -54,12 +55,17 @@ struct ContentView: View {
 
                         Spacer()
 
-                        Button(action: {
-                            showSettings = true
-                        }) {
-                            Image(systemName: "gearshape.fill")
-                                .font(.system(size: 20))
-                                .foregroundColor(systemColorScheme == .dark ? .pastelMintDark : .pastelLavender)
+                        HStack(spacing: 12) {
+                            AudioOutputPickerButton()
+                                .frame(width: 20, height: 20)
+
+                            Button(action: {
+                                showSettings = true
+                            }) {
+                                Image(systemName: "gearshape.fill")
+                                    .font(.system(size: 20))
+                                    .foregroundColor(systemColorScheme == .dark ? .pastelMintDark : .pastelLavender)
+                            }
                         }
                     }
                     .padding(.horizontal, max(geometry.safeAreaInsets.leading, 16))

@@ -127,23 +127,24 @@ class WhiteNoiseEngine: ObservableObject {
             return
         }
 
-        NSLog("🎧 Audio route changed: \(reason.rawValue)")
+        NSLog("Audio route changed: \(reason.rawValue)")
 
         // Handle route changes (headphones plugged/unplugged, AirPods connected/disconnected, etc.)
         switch reason {
         case .newDeviceAvailable, .oldDeviceUnavailable:
             // Device changed - restart audio if playing
             if isPlaying {
-                NSLog("🔄 Restarting audio due to route change")
+                NSLog("Restarting audio due to route change")
                 Task { @MainActor in
                     let wasPlaying = isPlaying
                     let currentType = currentNoiseType
 
-                    // Stop current playback
+                    // Stop current playback and clear state
                     if currentType.isSampleBased {
                         playerNode?.stop()
                     }
                     audioEngine.stop()
+                    isPlaying = false
 
                     // Reconfigure and restart
                     if currentType.isSampleBased {
@@ -427,7 +428,7 @@ class WhiteNoiseEngine: ObservableObject {
     }
 
     func setNoiseType(_ type: NoiseType) {
-        NSLog("🔵 setNoiseType called with: \(type.rawValue), isSampleBased: \(type.isSampleBased)")
+        NSLog("setNoiseType called with: \(type.rawValue), isSampleBased: \(type.isSampleBased)")
 
         if currentNoiseType == type && isPlaying {
             pause()
@@ -483,23 +484,23 @@ class WhiteNoiseEngine: ObservableObject {
 
     private func playSampleAudio() {
         guard let player = playerNode else {
-            NSLog("❌ ERROR: playerNode is nil")
+            NSLog("ERROR: playerNode is nil")
             return
         }
 
         // Try to load actual audio file
         let fileName = currentNoiseType.audioFileName
-        NSLog("🎵 Attempting to load audio file: \(fileName).wav")
+        NSLog("Attempting to load audio file: \(fileName).wav")
 
         if let url = Bundle.main.url(forResource: fileName, withExtension: "wav") {
-            NSLog("✅ Found audio file at: \(url.path)")
+            NSLog("Found audio file at: \(url.path)")
             do {
                 let file = try AVAudioFile(forReading: url)
                 let format = file.processingFormat
                 let frameCount = AVAudioFrameCount(file.length)
 
-                NSLog("📊 Audio file format: \(format)")
-                NSLog("📊 Frame count: \(frameCount)")
+                NSLog("Audio file format: \(format)")
+                NSLog("Frame count: \(frameCount)")
 
                 // Reconnect player with the file's format
                 let mainMixer = audioEngine.mainMixerNode
@@ -507,34 +508,34 @@ class WhiteNoiseEngine: ObservableObject {
                 audioEngine.connect(player, to: mainMixer, format: format)
 
                 guard let buffer = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: frameCount) else {
-                    NSLog("❌ ERROR: Failed to create buffer for \(fileName)")
+                    NSLog("ERROR: Failed to create buffer for \(fileName)")
                     return
                 }
 
                 try file.read(into: buffer)
-                NSLog("✅ Successfully read \(frameCount) frames")
+                NSLog("Successfully read \(frameCount) frames")
 
                 // Start engine if not running
                 if !audioEngine.isRunning {
                     try audioEngine.start()
-                    NSLog("🎵 Audio engine started")
+                    NSLog("Audio engine started")
                 }
 
                 player.scheduleBuffer(buffer, at: nil, options: .loops)
                 player.play()
                 isPlaying = true
                 updateNowPlayingInfo()
-                NSLog("▶️ Playing audio file: \(fileName).wav")
+                NSLog("Playing audio file: \(fileName).wav")
                 return
             } catch {
-                NSLog("❌ ERROR: Failed to load audio file \(fileName).wav: \(error.localizedDescription)")
+                NSLog("ERROR: Failed to load audio file \(fileName).wav: \(error.localizedDescription)")
             }
         } else {
-            NSLog("❌ ERROR: Audio file \(fileName).wav not found in bundle")
+            NSLog("ERROR: Audio file \(fileName).wav not found in bundle")
         }
 
         // Fallback: generate placeholder audio
-        NSLog("⚠️ Using placeholder audio for \(fileName)")
+        NSLog("WARNING: Using placeholder audio for \(fileName)")
         playPlaceholderAudio()
     }
 
